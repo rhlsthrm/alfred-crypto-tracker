@@ -8,8 +8,10 @@ def format_strings_from_quote(ticker, quote_data):
     last = '%.2f' % float(quote_data[usd_query]['last'])
     high = '%.2f' % float(quote_data[usd_query]['high24hr'])
     low = '%.2f' % float(quote_data[usd_query]['low24hr'])
+    change = '%.2f' % float(quote_data[usd_query]['percentChange'])
+    change = '+' + change if float(change) > 0 else change
     formatted = {}
-    formatted['title'] = ticker.upper() + ': $' + last
+    formatted['title'] = ticker.upper() + ': $' + last + ' (' + change + '%)'
     formatted['subtitle'] = '24hr High: ' + high + ' 24hr low ' + low
     return formatted
 
