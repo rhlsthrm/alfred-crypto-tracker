@@ -1,5 +1,5 @@
 # CryptoCurrency Tracker for Alfred
-Quickly check cryptocurrency prices with Alfred.
+Quickly check cryptocurrency prices with [Alfred](https://www.alfredapp.com/).
 ![Using the workflow without arguments](screenshot_no_arg.png?raw=true)
 Use arguments to check many other cryptocurrency prices.
 ![Using the workflow with argument](screenshot_with_arg.png?raw=true)
