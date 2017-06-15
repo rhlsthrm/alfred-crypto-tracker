@@ -27,7 +27,6 @@ def main(wf):
     # Workflow will catch this and show it to the user
     r.raise_for_status()
 
-    # Parse the JSON returned by pinboard and extract the posts
     result = r.json()
     if query:
         usd_query = 'USDT_' + query.upper()
