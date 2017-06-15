@@ -9,5 +9,11 @@ Use arguments to check many other cryptocurrency prices.
 * Optionally provide an argument to get a quote for another currency symbol.
 * Quotes are all USD currency pair.
 
+# Usage
+Use makefile to build workflow from source. Workflow file can be imported into Alfred.
+
+# Contributing
+Pull requests welcome!
+
 # Credits
 This workflow uses [alfred-workflow](https://github.com/deanishe/alfred-workflow)
