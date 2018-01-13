@@ -5,14 +5,14 @@ from workflow import Workflow, ICON_WEB, ICON_ERROR, web
 
 def format_strings_from_quote(ticker, quote_data):
     usd_query = 'USDT_' + ticker.upper()
-    last = '%.2f' % float(quote_data[usd_query]['last'])
-    high = '%.2f' % float(quote_data[usd_query]['high24hr'])
-    low = '%.2f' % float(quote_data[usd_query]['low24hr'])
+    last = "{:,.2f}".format(float(quote_data[usd_query]['last']))
+    high = "{:,.2f}".format(float(quote_data[usd_query]['high24hr']))
+    low = "{:,.2f}".format(float(quote_data[usd_query]['low24hr']))
     change = '%.2f' % float(quote_data[usd_query]['percentChange'])
     change = '+' + change if float(change) > 0 else change
     formatted = {}
     formatted['title'] = ticker.upper() + ': $' + last + ' (' + change + '%)'
-    formatted['subtitle'] = '24hr High: ' + high + ' 24hr low ' + low
+    formatted['subtitle'] = '24hr High: $' + high + ' 24hr low $' + low
     return formatted
 
 def main(wf):
