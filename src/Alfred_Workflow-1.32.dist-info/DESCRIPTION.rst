@@ -1,6 +1,6 @@
 A helper library for writing `Alfred 2 and 3`_ workflows.
 
-Supports OS X 10.6+ and Python 2.6 and 2.7 (Alfred 3 is 10.9+/2.7 only).
+Supports macOS 10.6+ and Python 2.6 and 2.7 (Alfred 3 is 10.9+/2.7 only).
 
 Alfred-Workflow is designed to take the grunt work out of writing a workflow.
 
@@ -101,11 +101,11 @@ You can install any other library available on the `Cheese Shop`_ the
 same way. See the `pip documentation`_ for more information.
 
 
->From source
+From source
 -----------
 
-Download the ``alfred-workflow-X.X.X.zip`` file from the `GitHub releases`_ page
-and extract the ZIP to the root directory of your workflow (where
+Download the ``alfred-workflow-X.X.X.zip`` file from the `GitHub releases`_
+page and extract the ZIP to the root directory of your workflow (where
 ``info.plist`` is).
 
 Alternatively, you can download `the source code`_ from the `GitHub repository`_
