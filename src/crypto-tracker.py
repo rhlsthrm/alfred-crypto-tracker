@@ -32,12 +32,12 @@ def main(wf):
         r.raise_for_status()
         result = r.json()
         try:
-        formatted = format_strings_from_quote(query, result)
-        wf.add_item(title=formatted['title'],
-                    subtitle=formatted['subtitle'],
-                    arg='https://www.cryptocompare.com/coins/' + query + '/overview/USD',
-                    valid=True,
-                    icon=ICON_WEB)
+            formatted = format_strings_from_quote(query, result)
+            wf.add_item(title=formatted['title'],
+                        subtitle=formatted['subtitle'],
+                        arg='https://www.cryptocompare.com/coins/' + query + '/overview/USD',
+                        valid=True,
+                        icon=ICON_WEB)
         except:
             wf.add_item(title='Couldn\'t find a quote for that symbol.',
                         subtitle='Please try again.',
