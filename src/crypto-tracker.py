@@ -11,8 +11,8 @@ def format_strings_from_quote(ticker, quote_data):
     low = "{:,.2f}".format(data["LOW24HOUR"])
     change = "{:,.2f}".format(data["CHANGEPCT24HOUR"])
     formatted = {}
-    formatted['title'] = ticker.upper() + ': $' + price + ' (' + change + '%)'
-    formatted['subtitle'] = '24hr High: $' + high + ' 24hr low $' + low
+    formatted['title'] = '{}: ${} ({}%)'.format(ticker.upper(), price, change)
+    formatted['subtitle'] = '24hr high: ${} | 24hr low: ${}'.format(high, low)
     return formatted
 
 
