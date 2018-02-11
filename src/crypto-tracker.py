@@ -5,11 +5,11 @@ from workflow import Workflow, ICON_WEB, ICON_ERROR, web
 
 
 def format_strings_from_quote(ticker, quote_data):
-    data = quote_data["RAW"][ticker.upper()]["USD"]
-    price = "{:,.2f}".format(data["PRICE"])
-    high = "{:,.2f}".format(data["HIGH24HOUR"])
-    low = "{:,.2f}".format(data["LOW24HOUR"])
-    change = "{:,.2f}".format(data["CHANGEPCT24HOUR"])
+    data = quote_data['RAW'][ticker.upper()]['USD']
+    price = '{:,.2f}'.format(data['PRICE'])
+    high = '{:,.2f}'.format(data['HIGH24HOUR'])
+    low = '{:,.2f}'.format(data['LOW24HOUR'])
+    change = '{:,.2f}'.format(data['CHANGEPCT24HOUR'])
     formatted = {}
     formatted['title'] = '{}: ${} ({}%)'.format(ticker.upper(), price, change)
     formatted['subtitle'] = '24hr high: ${} | 24hr low: ${}'.format(high, low)
