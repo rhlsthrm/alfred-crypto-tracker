@@ -7,7 +7,7 @@ Updated to python 3
 <a href="https://github.com/giovannicoppola/alfred-crypto-tracker/releases/latest/">
   
   <img alt="Downloads"
-       src="https://img.shields.io/github/downloads/giovannicoppola/alfred-crypto-tracker?color=purple&label=Downloads"><br/>
+       src="https://img.shields.io/github/downloads/giovannicoppola/alfred-crypto-tracker/total?color=purple&label=Downloads"><br/>
 </a>
 
 ![Using the workflow without arguments](screenshot_no_arg.png?raw=true)
