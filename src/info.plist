@@ -4,15 +4,13 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.cryprotracker</string>
-	<key>category</key>
-	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>4FD48167-2143-421F-AAFE-395A6C9E511F</key>
+		<key>CF35A24A-ED70-4124-9E31-D356993403FC</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>3BC36B16-2508-46FB-A39E-C388EF505CD6</string>
+				<string>203CE1F8-438D-407D-BB86-E46160867531</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -23,7 +21,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Rahul Sethuram</string>
+	<string>giovanni from Rahul Sethuram</string>
 	<key>description</key>
 	<string>Quickly get price information for cryptocurrencies.</string>
 	<key>disabled</key>
@@ -35,8 +33,33 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>203CE1F8-438D-407D-BB86-E46160867531</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -54,9 +77,11 @@
 				<key>runningsubtext</key>
 				<string>Retrieving quotes...</string>
 				<key>script</key>
-				<string>python crypto-tracker.py "{query}"</string>
+				<string>export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
+export PYTHONPATH="$PWD/lib"
+python3 crypto-tracker.py "$1"</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
@@ -71,49 +96,34 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>4FD48167-2143-421F-AAFE-395A6C9E511F</string>
+			<string>CF35A24A-ED70-4124-9E31-D356993403FC</string>
 			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>3BC36B16-2508-46FB-A39E-C388EF505CD6</string>
-			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Migrated to Python 3 from https://github.com/rhlsthrm/alfred-crypto-tracker</string>
 	<key>uidata</key>
 	<dict>
-		<key>3BC36B16-2508-46FB-A39E-C388EF505CD6</key>
+		<key>203CE1F8-438D-407D-BB86-E46160867531</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>400</integer>
 			<key>ypos</key>
-			<integer>120</integer>
+			<integer>360</integer>
 		</dict>
-		<key>4FD48167-2143-421F-AAFE-395A6C9E511F</key>
+		<key>CF35A24A-ED70-4124-9E31-D356993403FC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>165</integer>
 			<key>ypos</key>
-			<integer>120</integer>
+			<integer>360</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>2.0</string>
 	<key>webaddress</key>
 	<string>github.com/rhlsthrm/alfred-crypto-tracker</string>
 </dict>

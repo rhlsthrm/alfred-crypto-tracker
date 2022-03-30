@@ -1,7 +1,18 @@
-# encoding: utf-8
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# giovanni from Rahul Sethuram
+# Clear ☀️   🌡️+32°F (feels +24°F, 37%) 🌬️↓12mph 🌑 Wed Mar 30 05:07:37 2022
+
 
 import sys
-from workflow import Workflow, ICON_WEB, ICON_ERROR, web
+import requests
+import json
+
+
+def log(s, *args):
+    if args:
+        s = s % args
+    print(s, file=sys.stderr)
 
 
 def format_strings_from_quote(ticker, quote_data):
@@ -16,71 +27,111 @@ def format_strings_from_quote(ticker, quote_data):
     return formatted
 
 
-def main(wf):
-    # Get query from Alfred
-    if len(wf.args):
-        query = wf.args[0]
+def main():
+    
+    if len(sys.argv) > 1:
+        query = sys.argv[1]
     else:
         query = None
 
+    result = {"items": []}
+
+            
     if query:
         url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + \
             query.upper() + '&tsyms=USD'
-        r = web.get(url)
-        # throw an error if request failed
-        # Workflow will catch this and show it to the user
-        r.raise_for_status()
-        result = r.json()
+        
+        resp = requests.get(url)
+        myData = resp.json()
+        
+                      
         try:
-            formatted = format_strings_from_quote(query, result)
-            wf.add_item(title=formatted['title'],
-                        subtitle=formatted['subtitle'],
-                        arg='https://www.cryptocompare.com/coins/' + query + '/overview/USD',
-                        valid=True,
-                        icon=ICON_WEB)
+            formatted = format_strings_from_quote(query, myData)
+            
+            result["items"].append({
+            "title": formatted['title'],
+            'subtitle': formatted['subtitle'],
+            'valid': True,
+            
+            "icon": {
+                "path": 'icon/BookmarkIcon.icns'
+            },
+            'arg': 'https://www.cryptocompare.com/coins/' + query + '/overview/USD'
+                }) 
+
+        
         except:
-            wf.add_item(title='Couldn\'t find a quote for that symbol.',
-                        subtitle='Please try again.',
-                        icon=ICON_ERROR)
+            result["items"].append({
+            "title": 'Couldn\'t find a quote for that symbol 😞',
+            'subtitle': 'Please try again.',
+            
+            
+            "icon": {
+                "path": 'icon/AlertStopIcon.icns'
+            },
+                }) 
+        
     else:
         url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,LTC,BCH&tsyms=USD'
-        r = web.get(url)
-        # throw an error if request failed
-        # Workflow will catch this and show it to the user
-        r.raise_for_status()
-        result = r.json()
-        formatted = format_strings_from_quote('BTC', result)
-        wf.add_item(title=formatted['title'],
-                    subtitle=formatted['subtitle'],
-                    arg='https://www.cryptocompare.com/',
-                    valid=True,
-                    icon='icon/btc.png')
+        resp = requests.get(url)
+        myData = resp.json()
+        
+        
+        formatted = format_strings_from_quote('BTC', myData)
+        result["items"].append({
+            "title": formatted['title'],
+            'subtitle': formatted['subtitle'],
+            'valid': True,
+            
+            "icon": {
+                "path": 'icon/btc.png'
+            },
+            'arg': 'https://www.cryptocompare.com/'
+                }) 
+        
+        
 
-        formatted = format_strings_from_quote('ETH', result)
-        wf.add_item(title=formatted['title'],
-                    subtitle=formatted['subtitle'],
-                    arg='https://www.cryptocompare.com/',
-                    valid=True,
-                    icon='icon/eth.png')
+        formatted = format_strings_from_quote('ETH', myData)
 
-        formatted = format_strings_from_quote('LTC', result)
-        wf.add_item(title=formatted['title'],
-                    subtitle=formatted['subtitle'],
-                    arg='https://www.cryptocompare.com/',
-                    valid=True,
-                    icon='icon/ltc.png')
+        result["items"].append({
+        "title": formatted['title'],
+        'subtitle': formatted['subtitle'],
+        'valid': True,
+        
+        "icon": {
+            "path": 'icon/eth.png'
+        },
+        'arg': 'https://www.cryptocompare.com/'
+            }) 
 
-        formatted = format_strings_from_quote('BCH', result)
-        wf.add_item(title=formatted['title'],
-                    subtitle=formatted['subtitle'],
-                    arg='https://www.cryptocompare.com/',
-                    valid=True,
-                    icon='icon/bch.png')
+        
+        formatted = format_strings_from_quote('LTC', myData)
+        result["items"].append({
+        "title": formatted['title'],
+        'subtitle': formatted['subtitle'],
+        'valid': True,
+        
+        "icon": {
+            "path": 'icon/ltc.png'
+        },
+        'arg': 'https://www.cryptocompare.com/'
+            }) 
+        
+        formatted = format_strings_from_quote('BCH', myData)
+        result["items"].append({
+            "title": formatted['title'],
+            'subtitle': formatted['subtitle'],
+            'valid': True,
+            
+            "icon": {
+                "path": 'icon/bch.png'
+            },
+            'arg': 'https://www.cryptocompare.com/'
+                }) 
 
-    # Send the results to Alfred as XML
-    wf.send_feedback()
+    
+    print (json.dumps(result))
 
 
 if __name__ == u"__main__":
-    wf = Workflow()
-    sys.exit(wf.run(main))
+   main()
