@@ -4,6 +4,18 @@ Quickly check cryptocurrency prices with [Alfred](https://www.alfredapp.com/).
 Use arguments to check many other cryptocurrency prices.
 ![Using the workflow with argument](screenshot_with_arg.png?raw=true)
 
+## March 2022
+Updated to python 3
+
+<a href="https://github.com/giovannicoppola/alfred-crypto-tracker/releases/latest/">
+  
+  <img alt="Downloads"
+       src="https://img.shields.io/github/downloads/giovannicoppola/alfred-crypto-tracker?color=purple&label=Downloads"><br/>
+</a>
+
+
+
+
 # Features
 * Quickly check the main cryptocurrency ticker price using CryptoCompare (BTC, ETH, LTC, BCH).
 * Optionally provide an argument to get a quote for another currency symbol.
