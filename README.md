@@ -1,15 +1,6 @@
 # CryptoCurrency Tracker for Alfred
 Quickly check cryptocurrency prices with [Alfred](https://www.alfredapp.com/).
 
-## March 2022
-Updated to python 3
-
-<a href="https://github.com/giovannicoppola/alfred-crypto-tracker/releases/latest/">
-  
-  <img alt="Downloads"
-       src="https://img.shields.io/github/downloads/giovannicoppola/alfred-crypto-tracker/total?color=purple&label=Downloads"><br/>
-</a>
-
 ![Using the workflow without arguments](screenshot_no_arg.png?raw=true)
 Use arguments to check many other cryptocurrency prices.
 ![Using the workflow with argument](screenshot_with_arg.png?raw=true)
