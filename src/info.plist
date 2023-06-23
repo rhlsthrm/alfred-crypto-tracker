@@ -21,7 +21,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>giovanni from Rahul Sethuram</string>
+	<string>Rahul Sethuram</string>
 	<key>description</key>
 	<string>Quickly get price information for cryptocurrencies.</string>
 	<key>disabled</key>
@@ -35,12 +35,14 @@
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
 				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -65,7 +67,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>crypto</string>
+				<string>{var:mainkeyword}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -102,29 +104,57 @@ python3 crypto-tracker.py "$1"</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Migrated to Python 3 from https://github.com/rhlsthrm/alfred-crypto-tracker</string>
+	<string>- Quickly check the main cryptocurrency ticker price using CryptoCompare (BTC, ETH, LTC, BCH).
+- Optionally provide an argument to get a quote for a specific currency symbol.
+- Quotes are all USD currency pair.
+
+Migrated to Python 3 from https://github.com/rhlsthrm/alfred-crypto-tracker</string>
 	<key>uidata</key>
 	<dict>
 		<key>203CE1F8-438D-407D-BB86-E46160867531</key>
 		<dict>
 			<key>xpos</key>
-			<integer>400</integer>
+			<real>400</real>
 			<key>ypos</key>
-			<integer>360</integer>
+			<real>360</real>
 		</dict>
 		<key>CF35A24A-ED70-4124-9E31-D356993403FC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>165</integer>
+			<real>165</real>
 			<key>ypos</key>
-			<integer>360</integer>
+			<real>360</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>crypto</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>mainkeyword</string>
+		</dict>
+	</array>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2.0</string>
+	<string>2.1</string>
 	<key>webaddress</key>
-	<string>github.com/rhlsthrm/alfred-crypto-tracker</string>
+	<string>https://github.com/giovannicoppola/alfred-crypto-tracker</string>
 </dict>
 </plist>
